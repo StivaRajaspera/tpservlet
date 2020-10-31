@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>contact</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link rel="stylesheet" href="css/main.css" />-->
+    </head>
+    <body>
+  <nav>
+    <div id="frontImageContainer">
+      <ul>
+        <li><a href="#ancreInterne"> Menu Local </a></li>
+        <li>
+          <a href="https://passeport.dauphine.fr/" target="_blank" accesskey="P">
+            Passeport Dauphine</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section>
+    <div id="formulaire">
+      <form method="POST" action="AfficherPersonne">
+        <label for="firstName">First Name</label><input type="text" name="firstname" id="firstName" value="Nom"
+          maxlength="10" />
+        <br />
+        <label for="middleName"> Middle Name</label><input type="text" name="middlename" id="middleName"
+          maxlength="10" />
+        <br />
+        <label for="lastName">Last Name </label><input type="text" name="lastname" id="lastName" maxlength="10" />
+        <br />
+
+        <label for="sexMale">Gender</label><input type="radio" name="sexe" id="sexMale" value="m" /> Male
+        <input type="radio" name="sexe" id="sexFemale" value="f" />
+        Female
+        <br />
+
+        <label for="phoneNumber">Phone</label><input type="tel" name="phonenumber" id="phoneNumber" />
+        <br />
+
+        <label for="mailAdress" id="mailLabel">Mail</label><input type="email" name="mailadress" id="mailAdress"
+          placeholder="abcdefghijlm@qqchz.wut" />
+        <br />
+
+        <label for="contctbox">Contact</label><input type="checkbox" name="contct" id="contctbox" />
+        <br />
+        <br />
+        <br />
+
+        <input type="submit" value="Enregistrer" />
+        <input type="reset" value="Effacer" />
+      </form>
+     
+
+    </div>
+  </section>
+</body>
+
+</html>
