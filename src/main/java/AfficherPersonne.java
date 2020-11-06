@@ -6,7 +6,10 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,6 +80,11 @@ public class AfficherPersonne extends HttpServlet {
         HttpSession session = request.getSession(true);
         Personne personne = this.getPersonneData(request);
         session.setAttribute("utilisateur", personne);
+        ServletContext context = getServletContext();
+        String id = session.getId();
+        ArrayList<String> utilisateurs = new ArrayList<String>();
+        utilisateurs.add(id);
+        context.setAttribute("users",utilisateurs);
         RequestDispatcher rd = request.getRequestDispatcher("Affichage");
         rd.forward(request,response);
     }

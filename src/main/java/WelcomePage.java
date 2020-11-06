@@ -6,6 +6,9 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -75,7 +78,7 @@ public class WelcomePage extends HttpServlet {
         Cookie cookies[] = request.getCookies();
         //cookies[0] represente JSESSIONID
         String cookievalue = cookies[1].getValue();
-        Integer counter = Integer.parseInt(cookievalue);
+        Integer counter = Integer.valueOf(cookievalue);
         HttpSession session = request.getSession(false);
         counter++;
         Cookie cookie = new Cookie(cookies[1].getName(),String.valueOf(counter));
@@ -93,6 +96,14 @@ public class WelcomePage extends HttpServlet {
             }
             else{
                 out.println("<p>Your id is "+session.getId()+" You ve visited the page "+counter+" times </p>");
+            }
+            out.println("<br>");
+            out.println("<br>");
+            out.println("<p> La liste des utilisateurs connectes : </p>");
+            ServletContext context = getServletContext();
+            ArrayList<String>utilisateurs = (ArrayList<String>) context.getAttribute("users");
+            for(String user : utilisateurs){
+                out.print("<p>"+user+"</p>");
             }
             out.println("</body>");
             out.println("</html>");
